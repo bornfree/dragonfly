@@ -19,6 +19,7 @@ module Dragonfly
       configurable_attr :url_host
 
       REGIONS = {
+        's3forme'   => 'rest.s3for.me',
         'us-east-1' => 's3.amazonaws.com',  #default
         'us-west-1' => 's3-us-west-1.amazonaws.com',
         'us-west-2' => 's3-us-west-2.amazonaws.com',
@@ -140,7 +141,7 @@ module Dragonfly
       end
 
       def get_region
-        reg = region || 'us-east-1'
+        reg = region || 's3forme'
         raise "Invalid region #{reg} - should be one of #{valid_regions.join(', ')}" unless valid_regions.include?(reg)
         reg
       end
